@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """This module contains a square class"""
 
-
 class Square:
     """This class defines a square"""
 
@@ -17,4 +16,3 @@ class Square:
     def area(self):
         """generates the area"""
         return self.__size ** 2
- 
