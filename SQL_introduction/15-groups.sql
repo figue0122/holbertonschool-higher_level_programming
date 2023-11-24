@@ -1,0 +1,2 @@
+--This SQL counts the occurrences of each unique "score" in the "second_table" and sorts the results by count in descending order.
+SELECT score, COUNT(*) AS number FROM second_table GROUP BY score ORDER BY number DESC;
