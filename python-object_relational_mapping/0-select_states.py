@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Displays all states from database
+Displays all states from the database
 """
 import MySQLdb
 import sys
@@ -17,5 +17,8 @@ if __name__ == '__main__':
     cur.execute("SELECT * FROM states;")
     states = cur.fetchall()
 
-    for state in states: 
+    for state in states:
         print(state)
+
+    cur.close()
+    db.close()
