@@ -1,12 +1,20 @@
 #!/usr/bin/python3
+"""
+Module to take user input and display all values in the states table of
+hbtn_0e_0_usa where name matches the argument
+"""
 
-# Import necessary modules
+
 import MySQLdb
 import sys
 
-# Check if the script is being run as the main program
 if __name__ == "__main__":
-    # Establish a connection to the MySQL database
+    """
+    Function that takes user input and displays all values in the
+    states table of hbtn_0e_0_usa where name matches the argument.
+    """
+
+    # Connecting to a MySQL database.
     cnx = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -15,23 +23,24 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         database=sys.argv[3])
 
-    # Create a cursor object for executing SQL queries
+    # Making cursor obj for execution.
     cur = cnx.cursor()
 
-    # Execute a SELECT query to retrieve states with names starting with 'N'
+    # Executing query.
     cur.execute(
-        "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
+        "SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id ASC"
+        .format(sys.argv[4]))
 
-    # Fetch all rows from the executed query
+    # Obtaining query results.
     query_rows = cur.fetchall()
 
-    # Iterate through the query results and print states starting with 'N'
+    # Printing results.
     for row in query_rows:
-        if row[1][0] == 'N':
+        if row[1][0] == sys.argv[4][0]:
             print(row)
 
-    # Close the cursor to free up resources
+    # Close cursor.
     cur.close()
 
-    # Close the connection to the database
+    # Close connection to database.
     cnx.close()
