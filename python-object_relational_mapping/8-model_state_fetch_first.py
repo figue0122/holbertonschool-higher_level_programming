@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Displays all state objects from db
+Displays all state objects from database
 """
 import sys
 from model_state import Base, State
