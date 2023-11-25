@@ -1,30 +1,29 @@
 #!/usr/bin/python3
 """
-Displays state requested
+Module to list all State objects that contain the letter 'a' from database
 """
-import sys
-from model_state import Base, State
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
 
-if __name__ == '__main__':
-    username = sys.argv[1]
-    password = sys.argv[2]
-    databases = sys.argv[3]
-    state_name = sys.argv[4]
+
+from model_state import Base, State
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+import sys
+
+
+if __name__ == "__main__":
+    """Function that lists all State objects that contain the letter 'a' from
+    database"""
 
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost:3306/{}'
-        .format(username, password, databases))
+        'mysql+mysqldb://{}:{}@localhost/{}'.
+        format(sys.argv[1], sys.argv[2], sys.argv[3]),
+        pool_pre_ping=True)
 
-    # custom session object class from database engine
     Session = sessionmaker(bind=engine)
-    # instance
-    session = Session()
-    state = session.query(State).filter(State.name == state_name).first()
 
-    if not state:
-        print("Not found")
+    my_session = Session()
 
-    else:
-        print("{}".format(state.id))
+    for state in my_session.query(State).filter(State.name.like('%a%')):
+        print("{}: {}".format(state.id, state.name))
+
+    my_session.close()
