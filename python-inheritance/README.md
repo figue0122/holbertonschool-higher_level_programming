@@ -53,5 +53,4 @@ Create a class `Square` that inherits from `Rectangle`.
 Enhance the `Square` class with customized print/str methods.
 
 ## Author
-- [Miguel Figueroa ([Git Hub Profile](https://github.com/figue0122))
--
+- [Miguel Figueroa ([GitHub Profile ;)](https://github.com/figue0122))
