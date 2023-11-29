@@ -1,4 +1,4 @@
-# Holberton School - Higher Level Programming
+# Holberton School Python Scripts 🐍
 
 This repository contains Python scripts and programs written as part of the Holberton School curriculum. Each script addresses specific requirements, often focusing on file handling, JSON serialization, and class implementations.
 
@@ -44,4 +44,4 @@ This repository contains Python scripts and programs written as part of the Holb
     - Generates Pascal's Triangle up to a specified number of rows.
 
 ## Author
-- [Miguel Figueroa ([Git Hub Profile](https://github.com/figue0122))
+- [Miguel Figueroa](https://github.com/figue0122) 🚀
